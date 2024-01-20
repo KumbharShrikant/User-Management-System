@@ -1,0 +1,70 @@
+<!-- nav bar -->
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand ml-2"> <b>Registration Here</b></a>
+  <form class="form-inline">
+    <button class="btn-sm btn btn-success mr-2" type="button" (click)="userList()">View User List</button>
+  </form>
+</nav>
+
+<div class="jumbotron container card userForm">
+  <h2 style="text-align: center;">Add User Data</h2>
+
+  <!-- start user form -->
+  <form [formGroup]="userForm">
+    <div class="row">
+      <div class="col">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First name">
+        <div><span><label class="text-danger"
+              *ngIf="userForm.controls['firstName'].touched && userForm.controls['firstName'].invalid ">
+              Please Enter First Name.</label></span>
+        </div>
+
+      </div>
+      <div class="col">
+        <label for="firstName">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last name">
+
+        <div><span><label class="text-danger"
+              *ngIf="userForm.controls['lastName'].touched && userForm.controls['lastName'].invalid ">
+              Please Enter Last Name.</label></span>
+        </div>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col">
+        <label for="firstName">Address</label>
+        <input type="text" class="form-control" formControlName="address" placeholder="Enter Address">
+
+        <div><span><label class="text-danger"
+              *ngIf="userForm.controls['address'].touched && userForm.controls['address'].invalid ">
+              Please Enter Address.</label></span>
+        </div>
+      </div>
+      <div class="col">
+        <label for="firstName">Email</label>
+        <input type="text" id="email" class="form-control" formControlName="email" placeholder="Enter Email">
+
+
+        <div><span><label class="text-danger"
+              *ngIf="userForm.controls['email'].touched && userForm.controls['email'].invalid ">
+              Please Enter Valid Email Address.</label></span>
+        </div>
+      </div>
+      <div class="col">
+        <label for="firstName">Phone</label>
+        <input type="text" id="phone" class="form-control" (keypress)="numberOnly($event)" formControlName="phone"
+          maxlength="10" minlength="10" placeholder="Enter Phone No">
+
+        <div><span><label class="text-danger"
+              *ngIf="userForm.controls['phone'].touched && userForm.controls['phone'].invalid ">
+              Please Enter Valid Phone Number.</label></span>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="addUserButton">
+      <button type="submit" class="btn btn-primary mb-3" (click)="addUser()">Submit</button>
+    </div>
+  </form>
+</div>

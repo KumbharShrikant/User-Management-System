@@ -1,0 +1,34 @@
+<!-- nav bar -->
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand ml-2"><b>All User Data</b></a>
+  <form class="form-inline">
+    <button class="btn-sm btn btn-success mr-2" type="button" (click)="addNewUser()">Add New User</button>
+  </form>
+</nav>
+
+<!-- start table section -->
+<table class="table table-hover mt-1">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of users">
+      <td>{{data.firstName}}</td>
+      <td>{{data.lastName}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.phone}}</td>
+      <td>
+        <div>
+          <button class="btn-sm btn btn-success mr-2" type="button" (click)="updateUser(data)">Update</button>
+          <button class="btn-sm btn btn-danger" (click)="deleteUser(data.id)">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
